@@ -10,11 +10,11 @@ content = BeautifulSoup(response.content, "html.parser")
 tweetArr = []
 for tweet in content.findAll('div', attrs={"class": "tweetcontainer"}):  # look at each div with the class "tweetcontainer"
     tweetObject = {
-        "author": tweet.find('h2', attrs={"class": "author"}).text.encode('utf-8'),
-        "date": tweet.find('h5', attrs={"class": "dateTime"}).text.encode('utf-8'),
-        "tweet": tweet.find('p', attrs={"class": "content"}).text.encode('utf-8'),
-        "likes": tweet.find('p', attrs={"class": "likes"}).text.encode('utf-8'),
-        "shares": tweet.find('p', attrs={"class": "shares"}).text.encode('utf-8')
+        "author": tweet.find('h2', attrs={"class": "author"}).text,
+        "date": tweet.find('h5', attrs={"class": "dateTime"}).text,
+        "tweet": tweet.find('p', attrs={"class": "content"}).text,
+        "likes": tweet.find('p', attrs={"class": "likes"}).text,
+        "shares": tweet.find('p', attrs={"class": "shares"}).text
     }
     tweetArr.append(tweetObject)
 
